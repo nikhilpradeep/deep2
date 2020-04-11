@@ -1,0 +1,29 @@
+{% extends"layout.html" %}
+{% block content %}
+<table>
+<tr>
+<th colspan='2' align='center'>
+        <h1>Result</h1></th>
+	</tr>
+	<tr>
+	<td colspan='2' align='center'>
+        <img src="{{ image_path }}" alt="Input Image" height="50" width="50"> 
+		</td>
+		</tr>
+		<tr>
+		<td colspan='2' align='center'>
+        <h3>{{ result }} </h3>
+		</td>
+		</tr>
+		<tr>
+		<td colspan='2' align='center'>
+		<br><br>
+		<form action="/goback", method="POST">
+	
+		<button type="submit" class="button-basic">Back</button>
+	
+	</form>
+	</td>
+	</tr>
+	</table>
+{% endblock %}

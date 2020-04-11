@@ -1,0 +1,102 @@
+{% extends"layout.html" %}
+{% block content %}
+	<table>
+	<thead>
+	<tr>
+	<th colspan='3' align='center'><h1>DL & DE Assignment</h1></th>
+	</tr>
+	<tr>
+	<th colspan='3'>
+	<div>
+	<ul style="list-style-type: none;padding: 0;margin: 0;text-align: right;"> <li style="background-position: 100% .4em;padding-right: .6em;"> A Akhil - D19003</li>
+									   <li> SN Kailash - D19013</li>
+									   <li> Ch Nikhil Pradeep - D19019</li>									   
+									   <li> P Nishanth - D19020</li>
+									   <li> U Prabhat - D19022 </li></ul></th>
+	</div>
+	</tr>
+	<tr>
+	<th colspan='3' align='center'><br><br> Data Set Details<br> </th>
+	</tr>
+	<tr>
+	<th>Training Dataset Length</th>
+	<th colspan='2' align='center'>{{trl}}</th>
+	</tr>
+	
+	<tr>
+	<th>Testing Dataset Length</th>
+	<th colspan='2' align='center'>{{tel}}</th>
+	</tr>
+	
+	<tr>
+	<th>Classes</th>
+	<th colspan='2' align='center'>{{cls}}</th>
+	</tr>
+	<tr>
+	<th colspan='3' align='center'><br><br><br> Random images from the dataset<br></th>
+	
+	</tr>
+	
+	<tr>
+	<th>Label</th>
+	<th colspan='2' align='center'>{{ls}}</th>
+	</tr>
+	
+	<tr>
+	<th>Class</th>
+	<th colspan='2' align='center'>{{cls1}}</th>
+	</tr>
+	
+	<tr>
+	<td colspan='3' align='center'><br><img src="{{ pathi }}" alt="Input Image" height="150" width="350"><br><br> </td>
+	
+	
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<td>
+		<h4>
+            <p>Train the model (for first time users)</p>
+        </h4>
+	</td>
+	<td colspan='2' align='center'>
+    <form method="POST" action={{ url_for("training") }}>
+        
+        &emsp;&emsp;&emsp; <input type="submit" value="Train" name="submit">
+    </form>
+		
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<h4>
+            <p>Random Image test from test data</p>
+        </h4>
+	</td>
+	<td colspan='2' align='center'>
+    <form method="POST" action={{ url_for("random_test") }}>
+        &emsp;&emsp;&emsp; <input type="submit" value="Test" name="submit">
+    </form>
+	</td>
+	</tr>
+	<tr>
+	<td>
+        <h4>
+            <p>Upload the image and get results.</p>
+        </h4>
+	</td>
+	<td>
+    <form method="POST" enctype="multipart/form-data" action={{ url_for("upload_image_file") }}>
+	
+        <input type="file" name="file" accept="image/*" >
+		</td>
+		
+		
+		<td>
+        &emsp;&emsp;&emsp; <input type="submit" value="Upload" name="submit">
+    </form>
+	</td>
+	</tr>
+	</tbody>
+{% endblock %}
